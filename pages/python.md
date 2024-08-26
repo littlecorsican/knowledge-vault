@@ -1,0 +1,4 @@
+# PYTHON
+
+## CREATE VIRTUAL ENVIRONMENT
+python -m venv venv
