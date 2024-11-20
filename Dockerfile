@@ -11,4 +11,4 @@ RUN git pull https://github.com/littlecorsican/knowledge-vault.git
 
 EXPOSE 5000
 
-CMD ["retype", "start", "0.0.0.0"]
+CMD ["retype", "start", "--host", "0.0.0.0"]
