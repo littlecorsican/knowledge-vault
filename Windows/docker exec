@@ -1,0 +1,76 @@
+The `docker exec` command lets you run a command inside a running container. This is especially useful for debugging, inspecting container environments, or performing one-off administrative tasks. Here’s a breakdown of how to use it:
+
+---
+
+### Basic Syntax
+
+```bash
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+```
+
+- **CONTAINER**: The name or ID of the container you want to interact with.
+- **COMMAND**: The command you want to run inside the container.
+- **ARG...**: Any additional arguments for the command.
+
+---
+
+### Common Use Cases
+
+1. **Opening an Interactive Shell**:  
+   If you need to inspect the container’s environment or run interactive commands, you can start a shell session:
+   ```bash
+   docker exec -it <container_name_or_id> bash
+   ```
+   *Note*: Some containers might not have `bash` installed. In such cases, try `sh`:
+   ```bash
+   docker exec -it <container_name_or_id> sh
+   ```
+
+2. **Running a One-Off Command**:  
+   For tasks like listing files or checking system details:
+   ```bash
+   docker exec <container_name_or_id> ls -l /path/to/directory
+   ```
+
+---
+
+### Key Options Explained
+
+- **`-i`**: Keeps STDIN open even if not attached, allowing you to interact with the command.
+- **`-t`**: Allocates a pseudo-TTY, which makes the output more readable—especially useful for interactive sessions.
+- **`-d`**: Runs the command in the background (detached mode).
+- **`-u`**: Specifies the user under which the command will run. For example, to run as the `root` user:
+  ```bash
+  docker exec -u root -it <container_name_or_id> bash
+  ```
+
+---
+
+### Things to Keep in Mind
+
+- **Container Must Be Running**:  
+  The target container needs to be in a running state. You can check this with:
+  ```bash
+  docker ps
+  ```
+- **Use Cases for Debugging**:  
+  `docker exec` is a great way to troubleshoot issues inside your container by directly accessing its file system and processes.
+- **Command Availability**:  
+  Ensure that the command you’re trying to run exists in the container’s image. For instance, not all images include a shell like `bash`.
+
+---
+
+### Example Scenario
+
+Imagine you’re running a web application in a container named `webapp_container`, and you want to check its environment variables. You could run:
+```bash
+docker exec webapp_container printenv
+```
+Or, if you want to open a shell to explore interactively:
+```bash
+docker exec -it webapp_container bash
+```
+
+---
+
+By understanding these basics, you’ll be able to leverage `docker exec` effectively for container management and troubleshooting. Let me know if you need further examples or run into any issues!
