@@ -1,0 +1,25 @@
+#CAP theorem
+
+
+### A good design has 3 metrics
+scalability - grow with its user base
+maintainability - ensure future dev can understand / improve
+effieciency - make good use of system resources
+reliability - when things go wrong , it will not crash
+
+
+
+### 3 key elements
+moving data
+storing data
+transforming data 
+
+
+## CAP theorem
+Consistency - all nodes have the same data at the same time, make changes to 1 node, it will be reflected to all nodes
+Availability - system is always operational and responsive to request
+Partition Tolerance - continue functioning even if 1 node is down
+
+### Among these 3 a distributed system can only choose 2
+so you must compromise
+

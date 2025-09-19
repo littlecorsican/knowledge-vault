@@ -1,0 +1,25 @@
+# Caching
+
+
+a resource in finland may take 100ms to reach user in italy, but 4 sec to mexico
+
+use caching or CDN (content delivery network)
+
+caching is used to improve performance by storing a copy of data in a temporary storage (cache)
+
+cache example
+1) web browser stores on local machine
+http cache related headers = cache-control
+
+2) server caching - cache that stores on a server
+eg: redis
+server checks data from server before asking from db
+
+3) database caching
+similar with server caching 
+eg redis, memchace
+
+4) CDN caching
+server that are located in each continent
+when user request a file, it is redirect to the nearest CDN server.
+stores JS, CSS, HTML files
